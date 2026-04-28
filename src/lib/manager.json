@@ -1,0 +1,23 @@
+{
+  "discord": "https://discord.gg/SFwzAnRjvv",
+  "announcement": "SERVER MAINTENANCE: All servers offline for major changes and host migration // Join the Discord for status updates",
+  "games": [
+    {
+      "title": "Ground Branch",
+      "url": "https://store.steampowered.com/app/16900/GROUND_BRANCH/",
+      "servers": [
+        { "id": "12345678" }
+      ]
+    },
+    {
+      "title": "Unturned",
+      "url": "https://store.steampowered.com/app/304930/Unturned/",
+      "servers": [
+        { "id": "10997380" },
+        { "id": "10997383" },
+        { "id": "10997381" },
+        { "id": "10997382", "offlineReason": "test server - offline" }
+      ]
+    }
+  ]
+}
