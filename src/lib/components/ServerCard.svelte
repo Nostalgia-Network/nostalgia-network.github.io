@@ -129,12 +129,22 @@
   {/if}
 
   {#if info && isOnline}
-    <a href={`https://gamemonitoring.net/${gameSlug}/servers/${info.id}/connect`} target="_blank" class="group flex items-center justify-center bg-primary text-primary-foreground border-l border-primary transition-all duration-500 ease-in-out shrink-0 relative overflow-hidden w-42 lg:w-12 lg:bg-transparent lg:text-muted-foreground/60 lg:border-border lg:hover:w-36 lg:hover:bg-primary lg:hover:text-primary-foreground lg:hover:border-primary">
+    <a 
+      href={`https://gamemonitoring.net/${gameSlug}/servers/${info.id}/connect`} 
+      target="_blank" 
+      class="group hidden lg:flex items-center justify-center bg-transparent text-muted-foreground/60 border-l border-border transition-all duration-500 ease-in-out shrink-0 relative overflow-hidden w-12 hover:w-36 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+    >
       <div class="flex items-center justify-center transition-all duration-500">
-        <span class="font-bold uppercase tracking-widest text-xs whitespace-nowrap transition-all duration-500 max-w-xs opacity-100 mr-3 lg:max-w-0 lg:opacity-0 lg:mr-0 lg:group-hover:max-w-xs lg:group-hover:opacity-100 lg:group-hover:mr-3">play now</span>
+        <span class="font-bold uppercase tracking-widest text-xs whitespace-nowrap transition-all duration-500 max-w-0 opacity-0 mr-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:mr-3">
+          play now
+        </span>
         <div class="relative size-4 flex items-center justify-center shrink-0">
-          <div class="absolute transition-all duration-500 transform scale-0 opacity-0 rotate-180 lg:scale-100 lg:opacity-100 lg:rotate-0 lg:group-hover:rotate-180 lg:group-hover:scale-0 lg:group-hover:opacity-0 flex items-center justify-center"><Play size={16} /></div>
-          <div class="absolute transition-all duration-500 transform scale-110 opacity-100 rotate-0 lg:scale-0 lg:opacity-0 lg:-rotate-180 lg:group-hover:rotate-0 lg:group-hover:scale-110 lg:group-hover:opacity-100 flex items-center justify-center"><Gamepad2 size={16} /></div>
+          <div class="absolute transition-all duration-500 transform scale-100 opacity-100 rotate-0 group-hover:rotate-180 group-hover:scale-0 group-hover:opacity-0 flex items-center justify-center">
+            <Play size={16} />
+          </div>
+          <div class="absolute transition-all duration-500 transform scale-0 opacity-0 -rotate-180 group-hover:rotate-0 group-hover:scale-110 group-hover:opacity-100 flex items-center justify-center">
+            <Gamepad2 size={16} />
+          </div>
         </div>
       </div>
     </a>
