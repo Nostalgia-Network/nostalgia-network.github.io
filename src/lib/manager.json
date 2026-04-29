@@ -13,10 +13,10 @@
       "title": "Unturned",
       "url": "https://store.steampowered.com/app/304930/Unturned/",
       "servers": [
-        { "id": "10997380" },
+        { "id": "10997380", "offlineReason": "test server - offline" },
         { "id": "10997383" },
         { "id": "10997381" },
-        { "id": "10997382", "offlineReason": "test server - offline" }
+        { "id": "10997382" }
       ]
     }
   ]
