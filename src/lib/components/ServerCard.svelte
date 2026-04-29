@@ -47,11 +47,10 @@
     try {
       const res = await fetch(`/docs/${ID}.md`);
       guideContent = await res.text();
-      isModalOpen = true;
     } catch (e) {
       guideContent = "# Error\nCould not load documentation for this server.";
-      isModalOpen = true;
     }
+    isModalOpen = true;
   }
 
   function scheduleRefresh(ms) { clearTimeout(refreshTimer); refreshTimer = setTimeout(fetchServerData, ms); }
@@ -129,17 +128,22 @@
     </div>
   {/if}
 
-  <a href={info ? `https://gamemonitoring.net/${gameSlug}/servers/${info.id}/connect` : '#'} target="_blank" class="group flex items-center justify-center bg-primary text-primary-foreground border-l border-primary transition-all duration-500 ease-in-out shrink-0 relative overflow-hidden w-42 lg:w-12 lg:bg-transparent lg:text-muted-foreground/60 lg:border-border lg:hover:w-36 lg:hover:bg-primary lg:hover:text-primary-foreground lg:hover:border-primary {!isOnline ? 'hidden' : ''} {!info ? 'pointer-events-none grayscale' : ''}">
-    <div class="flex items-center justify-center transition-all duration-500">
-      <span class="font-bold uppercase tracking-widest text-xs whitespace-nowrap transition-all duration-500 max-w-xs opacity-100 mr-3 lg:max-w-0 lg:opacity-0 lg:mr-0 lg:group-hover:max-w-xs lg:group-hover:opacity-100 lg:group-hover:mr-3">play now</span>
-      <div class="relative size-4 flex items-center justify-center shrink-0">
-        <div class="absolute transition-all duration-500 transform scale-0 opacity-0 rotate-180 lg:scale-100 lg:opacity-100 lg:rotate-0 lg:group-hover:rotate-180 lg:group-hover:scale-0 lg:group-hover:opacity-0 flex items-center justify-center"><Play size={16} /></div>
-        <div class="absolute transition-all duration-500 transform scale-110 opacity-100 rotate-0 lg:scale-0 lg:opacity-0 lg:-rotate-180 lg:group-hover:rotate-0 lg:group-hover:scale-110 lg:group-hover:opacity-100 flex items-center justify-center"><Gamepad2 size={16} /></div>
+  {#if info && isOnline}
+    <a href={`https://gamemonitoring.net/${gameSlug}/servers/${info.id}/connect`} target="_blank" class="group flex items-center justify-center bg-primary text-primary-foreground border-l border-primary transition-all duration-500 ease-in-out shrink-0 relative overflow-hidden w-42 lg:w-12 lg:bg-transparent lg:text-muted-foreground/60 lg:border-border lg:hover:w-36 lg:hover:bg-primary lg:hover:text-primary-foreground lg:hover:border-primary">
+      <div class="flex items-center justify-center transition-all duration-500">
+        <span class="font-bold uppercase tracking-widest text-xs whitespace-nowrap transition-all duration-500 max-w-xs opacity-100 mr-3 lg:max-w-0 lg:opacity-0 lg:mr-0 lg:group-hover:max-w-xs lg:group-hover:opacity-100 lg:group-hover:mr-3">play now</span>
+        <div class="relative size-4 flex items-center justify-center shrink-0">
+          <div class="absolute transition-all duration-500 transform scale-0 opacity-0 rotate-180 lg:scale-100 lg:opacity-100 lg:rotate-0 lg:group-hover:rotate-180 lg:group-hover:scale-0 lg:group-hover:opacity-0 flex items-center justify-center"><Play size={16} /></div>
+          <div class="absolute transition-all duration-500 transform scale-110 opacity-100 rotate-0 lg:scale-0 lg:opacity-0 lg:-rotate-180 lg:group-hover:rotate-0 lg:group-hover:scale-110 lg:group-hover:opacity-100 flex items-center justify-center"><Gamepad2 size={16} /></div>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
+  {/if}
 </div>
 
-{#if info}
-<GuideModal isOpen={isModalOpen} onClose={() => isModalOpen = false} serverName={info.name} markdownContent={guideContent} />
-{/if}
+<GuideModal 
+  isOpen={isModalOpen} 
+  onClose={() => isModalOpen = false} 
+  serverName={info?.name || 'Server'} 
+  markdownContent={guideContent} 
+/>
