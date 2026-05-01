@@ -114,7 +114,7 @@
       <div class="flex items-center gap-1 truncate max-w-50"><Map class="w-3.5 h-3.5 shrink-0" /><span class="truncate">{info?.map || 'Loading...'}</span></div>
       <span class="size-1 rounded-full bg-muted-foreground/10 shrink-0"></span>
       <div class="flex items-center text-[11px] text-muted-foreground/30 font-medium uppercase tracking-tight leading-none shrink-0 whitespace-nowrap">
-        Heartbeat: <span class="text-primary ml-1 mr-8">{timeAgo(info?.last_update)}</span>
+        heartbeat: <span class="text-primary ml-1 mr-8">{timeAgo(info?.last_update)}</span>
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@
   {#if hasGuide}
     <div class="flex items-center px-4">
       <button on:click={openGuide} class="group/guide flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/20 text-muted-foreground hover:text-primary hover:border-primary/40 transition-all text-[10px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
-        <span>Guide</span>
+        <span>guide</span>
         <BookOpen size={12} class="opacity-40 group-hover/guide:opacity-60 transition-opacity shrink-0" />
       </button>
     </div>

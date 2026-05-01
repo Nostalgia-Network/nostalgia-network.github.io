@@ -91,11 +91,8 @@
 
 <footer class="w-full border-t bg-background py-8 text-center">
     <div class="container mx-auto flex flex-col items-center gap-2">
-        <div class="flex items-center gap-1 text-sm text-muted-foreground">
-            <span>Built with <a href="https://shadcn-svelte.com/" target="_blank" class="font-medium underline underline-offset-4">shadcn-svelte</a>.</span>
-            <span>Code licensed under <a href="https://github.com/Perdyx/nostalgia/blob/main/LICENSE" target="_blank" class="font-medium underline underline-offset-4">MIT License</a>.</span>
-        </div>
         <div class="flex items-center gap-1.5 text-xs text-muted-foreground/60">
+            <span>Code licensed under <a href="https://github.com/Perdyx/nostalgia/blob/main/LICENSE" target="_blank" class="font-medium underline underline-offset-4">MIT License</a>.</span>
             <Copyright class="size-3" />
             <span>{new Date().getFullYear()}</span>
             Nostalgia Network
